@@ -11,14 +11,13 @@ import UIKit
 class SolutionArray {
     
     func test() {
-        let result = findDiagonalOrder(
-            [
-             [ 1, 2, 3 ],
-             [ 4, 5, 6 ],
-             [ 7, 8, 9 ]
-            ]
-        )
-        print(result)
+        let array = [
+         [ 1, 2, 3 ],
+         [ 4, 5, 6 ],
+         [ 7, 8, 9 ]
+        ]
+//        print(findDiagonalOrder(array)
+        print(spiralOrder(array))
     }
     
     /// 二维数组对角线遍历算法
@@ -55,6 +54,72 @@ class SolutionArray {
             }
             
             symbol = temp
+        }
+        
+        return result
+    }
+    
+    /// 顺时针螺旋遍历二维数组
+    func spiralOrder(_ matrix: [[Int]]) -> [Int] {
+        let rows = matrix.count
+        let cols = matrix.first?.count ?? 0
+        guard rows > 0 && cols > 0 else {
+            return matrix.first ?? []
+        }
+        
+        var row = 0
+        var col = 0
+        var isH = true // 是否是在水平方向移动
+        var isForword = true // true 水平方向向右，垂直方向向下
+        var result = [Int]()
+        var visitors = Set<Int>() // 访问过的元素
+        
+        while true {
+            
+            result.append(matrix[row][col])
+            visitors.insert(row * cols + col)
+            
+            if result.count == rows * cols {
+                break
+            }
+            
+            if isH && isForword { // 向右移动
+                // 如果当前已到最右边，或者右边一个元素已经遍历了，向下移动
+                if col == cols - 1 || visitors.contains(row * cols + col + 1) {
+                    row += 1
+                    isH = false
+                    isForword = true
+                } else {
+                    col += 1
+                }
+            } else if !isH && isForword { // 向下移动
+                // 如果当前已经到最下面，或者下面一个元素已经被遍历了，向左移动
+                if row == rows - 1 || visitors.contains((row + 1) * cols + col) {
+                    col -= 1
+                    isH = true
+                    isForword = false
+                } else {
+                    row += 1
+                }
+            } else if isH && !isForword { // 向左移动
+                // 如果已经到最左边，或者左边一个元素访问过，向上移动
+                if col == 0 || visitors.contains(row * cols + col - 1) {
+                    row -= 1
+                    isH = false
+                    isForword = false
+                } else {
+                    col -= 1
+                }
+            } else { // 向上移动
+                // 如果已到最上，或者最上一个元素已被访问，向右移动
+                if row == 0 || visitors.contains((row - 1) * cols + col) {
+                    col += 1
+                    isH = true
+                    isForword = true
+                } else {
+                    row -= 1
+                }
+            }
         }
         
         return result
