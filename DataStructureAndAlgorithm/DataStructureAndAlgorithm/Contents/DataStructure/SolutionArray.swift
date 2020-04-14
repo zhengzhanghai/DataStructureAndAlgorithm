@@ -11,15 +11,18 @@ import UIKit
 class SolutionArray {
     
     func test() {
-        let array = [
-         [ 1, 2, 3 ],
-         [ 4, 5, 6 ],
-         [ 7, 8, 9 ]
-        ]
+//        let array = [
+//         [ 1, 2, 3 ],
+//         [ 4, 5, 6 ],
+//         [ 7, 8, 9 ]
+//        ]
 //        print(findDiagonalOrder(array)
-        print(spiralOrder(array))
+//        print(spiralOrder(array))
+        
+        print(generate(5) as NSArray)
     }
     
+    //MARK: 二维数组对角线遍历算法
     /// 二维数组对角线遍历算法
     func findDiagonalOrder(_ matrix: [[Int]]) -> [Int] {
         let rows = matrix.count
@@ -59,6 +62,7 @@ class SolutionArray {
         return result
     }
     
+    //MARK: 顺时针螺旋遍历二维数组
     /// 顺时针螺旋遍历二维数组
     func spiralOrder(_ matrix: [[Int]]) -> [Int] {
         let rows = matrix.count
@@ -124,23 +128,40 @@ class SolutionArray {
         
         return result
     }
+
+    //MARK: 杨辉三角
+    /// 杨辉三角
+    func generate(_ numRows: Int) -> [[Int]] {
+        var result = [[Int]]()
+        guard numRows > 0 else {
+            return result
+        }
+        
+        for i in 0 ..< numRows {
+            var previous = [Int]()
+            if i > 0 {
+                previous = result[i - 1]
+            }
+            
+            var nums = [Int]()
+            for j in 0 ..< i + 1 {
+                var sum = 0
+                if previous.isEmpty {
+                    sum = 1
+                } else {
+                    if j < previous.count {
+                        sum += previous[j]
+                    }
+                    if j - 1 >= 0 {
+                        sum += previous[j - 1]
+                    }
+                }
+                
+                nums.append(sum)
+            }
+            result.append(nums)
+        }
+        
+        return result
+    }
 }
-
-//print(String(row) + " " + String(col) + " " + String(symbol))
-//[ 1, 2, 3 ],
-//[ 4, 5, 6 ],
-//[ 7, 8, 9 ]
-
-//横移
-//sym = true   row = 0
-//sym = false  row = rows - 1
-//
-//竖移
-//sym = false  col = 0
-//sym = true   col = cols - 1
-
-//转向
-//sym = true   row = 0 || col = cols - 1
-//sym = false  col = 0 || row = rows - 1
-
- 
