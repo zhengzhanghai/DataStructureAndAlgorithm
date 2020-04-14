@@ -13,6 +13,7 @@
 		AD22856724454F250077F7C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD22856524454F250077F7C8 /* Main.storyboard */; };
 		AD22856924454F270077F7C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD22856824454F270077F7C8 /* Assets.xcassets */; };
 		AD22856C24454F270077F7C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD22856A24454F270077F7C8 /* LaunchScreen.storyboard */; };
+		AD228578244550990077F7C8 /* SolutionArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD228577244550990077F7C8 /* SolutionArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AD22856824454F270077F7C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD22856B24454F270077F7C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD22856D24454F270077F7C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD228577244550990077F7C8 /* SolutionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		AD22855E24454F250077F7C8 /* DataStructureAndAlgorithm */ = {
 			isa = PBXGroup;
 			children = (
+				AD228574244550430077F7C8 /* Controllers */,
+				AD2285752445505C0077F7C8 /* Contents */,
+				AD22857324454FD30077F7C8 /* SupportFiles */,
+			);
+			path = DataStructureAndAlgorithm;
+			sourceTree = "<group>";
+		};
+		AD22857324454FD30077F7C8 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
 				AD22855F24454F250077F7C8 /* AppDelegate.swift */,
 				AD22856124454F250077F7C8 /* SceneDelegate.swift */,
-				AD22856324454F250077F7C8 /* ViewController.swift */,
 				AD22856524454F250077F7C8 /* Main.storyboard */,
 				AD22856824454F270077F7C8 /* Assets.xcassets */,
 				AD22856A24454F270077F7C8 /* LaunchScreen.storyboard */,
 				AD22856D24454F270077F7C8 /* Info.plist */,
 			);
-			path = DataStructureAndAlgorithm;
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		AD228574244550430077F7C8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD22856324454F250077F7C8 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AD2285752445505C0077F7C8 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				AD228576244550740077F7C8 /* DataStructure */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		AD228576244550740077F7C8 /* DataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				AD228577244550990077F7C8 /* SolutionArray.swift */,
+			);
+			path = DataStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +175,7 @@
 			files = (
 				AD22856424454F250077F7C8 /* ViewController.swift in Sources */,
 				AD22856024454F250077F7C8 /* AppDelegate.swift in Sources */,
+				AD228578244550990077F7C8 /* SolutionArray.swift in Sources */,
 				AD22856224454F250077F7C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +322,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3BCAF5M7TY;
-				INFOPLIST_FILE = DataStructureAndAlgorithm/Info.plist;
+				INFOPLIST_FILE = DataStructureAndAlgorithm/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3BCAF5M7TY;
-				INFOPLIST_FILE = DataStructureAndAlgorithm/Info.plist;
+				INFOPLIST_FILE = DataStructureAndAlgorithm/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
