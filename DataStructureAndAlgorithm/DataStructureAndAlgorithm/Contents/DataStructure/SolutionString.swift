@@ -10,7 +10,11 @@ import UIKit
 
 class SolutionString: NSObject {
     func test() {
-        print(addBinary("1010", "1011"))
+//        print(addBinary("1010", "1011"))
+        
+//        print(strStr("aaaa", "bb"))
+        
+        print(longestCommonPrefix(["dog","racecar","car"]))
     }
     
     //MARK: 二进制字符串求和
@@ -53,5 +57,60 @@ class SolutionString: NSObject {
         }
         
         return result
+    }
+    
+    //MARK: 查找第一个子串的位置
+    /// 查找第一个子串的位置
+    func strStr(_ haystack: String, _ needle: String) -> Int {
+        guard haystack.count >= needle.count else {
+            return -1
+        }
+        
+        for index in (0 ... haystack.count - needle.count) {
+            let startIndex = haystack.index(haystack.startIndex, offsetBy: index)
+            let subStr = haystack[startIndex ..< haystack.index(startIndex, offsetBy: needle.count)]
+            if String(subStr) == needle {
+                return index
+            }
+        }
+        
+        return -1
+    }
+    
+    //MARK:字符串最长公共前缀
+    /// 字符串最长公共前缀
+    func longestCommonPrefix(_ strs: [String]) -> String {
+        guard strs.count > 1 else {
+            return strs.first ?? ""
+        }
+        var commonPrefix = ""
+        for index in 0 ... Int.max {
+            var isContinue = true
+            var currentStr = ""
+            for str in strs {
+                guard str.count > index  else { // 字符串长度不够
+                    isContinue = false
+                    break
+                }
+                let s = String(str[str.index(str.startIndex, offsetBy: index) ... str.index(str.startIndex, offsetBy: index)])
+                
+                if currentStr == "" { // 是第一个字符串
+                    currentStr = s
+                } else {
+                    if currentStr != s {
+                        isContinue = false
+                        break
+                    }
+                }
+            }
+            
+            if isContinue {
+                commonPrefix += currentStr
+            } else {
+                break
+            }
+        }
+        
+        return commonPrefix
     }
 }
