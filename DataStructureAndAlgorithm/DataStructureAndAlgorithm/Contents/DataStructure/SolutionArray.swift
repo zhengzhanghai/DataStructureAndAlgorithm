@@ -26,6 +26,7 @@ class SolutionArray {
 //        print(array)
         
         print(arrayPairSum([7,3,1,0,0,6]))
+        print(twoSum([2, 7, 11, 15], 9))
     }
     
     //MARK: 二维数组对角线遍历算法
@@ -241,8 +242,12 @@ extension SolutionArray {
             return []
         }
         
-        for (index, val) in numbers.enumerated() {
-            
+        for i in 0 ... numbers.count {
+            for j in i+1 ..< numbers.count {
+                if numbers[i] + numbers[j] == target {
+                    return [i+1, j+1]
+                }
+            }
         }
         
         return []
