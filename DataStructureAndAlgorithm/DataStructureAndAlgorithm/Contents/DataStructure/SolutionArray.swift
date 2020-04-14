@@ -21,9 +21,11 @@ class SolutionArray {
         
 //        print(generate(5) as NSArray)
         
-        var array: [Character] = ["1", "2", "3", "4", "5"]
-        reverseString(&array)
-        print(array)
+//        var array: [Character] = ["1", "2", "3", "4", "5"]
+//        reverseString(&array)
+//        print(array)
+        
+        print(arrayPairSum([7,3,1,0,0,6]))
     }
     
     //MARK: 二维数组对角线遍历算法
@@ -184,5 +186,65 @@ class SolutionArray {
             s[left] = s[right]
             s[right] = temp
         }
+    }
+    
+    //MARK: 数组拆分
+    /// 数组拆分，这个题主要在于排序，可以直接用系统的方法直接排序
+    /// 下面采用了一种排序，效率较高(选取一个key，把这个key放到排序正确的位置，并使它左边的元素都比它小，右边的元素都比它大，然后递归子串排序)
+    func arrayPairSum(_ nums: [Int]) -> Int {
+        var newNums = nums
+        let numCount = newNums.count
+        sort(&newNums, left: 0, right: numCount - 1)
+        
+        var sum = 0
+        for i in 0 ..< numCount {
+            if i % 2 == 0 {
+                sum += newNums[i]
+            }
+        }
+        
+        return sum
+    }
+    
+    func sort(_ arr: inout [Int], left: Int, right: Int) {
+        if left >= right {
+            return
+        }
+        
+        var i = left
+        var j = right
+        let key = arr[left]
+        
+        while i < j {
+            while i < j && arr[j] >= key {
+                j -= 1
+            }
+            arr[i] = arr[j]
+            
+            while i < j && arr[i] <= key {
+                i += 1
+            }
+            arr[j] = arr[i]
+        }
+        
+        arr[i] = key
+        
+        sort(&arr, left: left, right: i - 1)
+        sort(&arr, left: i + 1, right: right)
+    }
+    
+}
+
+extension SolutionArray {
+    func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
+        guard numbers.count >= 2 else {
+            return []
+        }
+        
+        for (index, val) in numbers.enumerated() {
+            
+        }
+        
+        return []
     }
 }
