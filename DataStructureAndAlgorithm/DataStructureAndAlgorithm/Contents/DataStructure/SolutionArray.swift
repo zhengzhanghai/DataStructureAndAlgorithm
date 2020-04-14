@@ -25,8 +25,10 @@ class SolutionArray {
 //        reverseString(&array)
 //        print(array)
         
-        print(arrayPairSum([7,3,1,0,0,6]))
-        print(twoSum([2, 7, 11, 15], 9))
+//        print(arrayPairSum([7,3,1,0,0,6]))
+//        print(twoSum([2, 7, 11, 15], 9))
+        
+        print(findMaxConsecutiveOnes([1,1,0,1,1,1]))
     }
     
     //MARK: 二维数组对角线遍历算法
@@ -251,5 +253,40 @@ extension SolutionArray {
         }
         
         return []
+    }
+}
+
+extension SolutionArray {
+    func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+        let count = nums.count
+        
+        for index in 0 ..< count {
+            if nums[count - index - 1] == val {
+                nums.remove(at: count - index - 1)
+            }
+        }
+        
+        return nums.count
+    }
+}
+
+extension SolutionArray {
+    func findMaxConsecutiveOnes(_ nums: [Int]) -> Int {
+        var maxCount = 0
+        
+        var count = 0
+        
+        for num in nums {
+            if num == 1 {
+                count += 1
+            } else {
+                maxCount = max(maxCount, count)
+                count = 0
+            }
+        }
+        
+        maxCount = max(maxCount, count)
+        
+        return maxCount
     }
 }
