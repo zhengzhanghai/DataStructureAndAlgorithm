@@ -19,7 +19,11 @@ class SolutionArray {
 //        print(findDiagonalOrder(array)
 //        print(spiralOrder(array))
         
-        print(generate(5) as NSArray)
+//        print(generate(5) as NSArray)
+        
+        var array: [Character] = ["1", "2", "3", "4", "5"]
+        reverseString(&array)
+        print(array)
     }
     
     //MARK: 二维数组对角线遍历算法
@@ -163,5 +167,22 @@ class SolutionArray {
         }
         
         return result
+    }
+    
+    //MARK: 反转数组
+    /// 反转数组
+    func reverseString(_ s: inout [Character]) {
+        for index in 0 ..< s.count {
+            let left = index
+            let right = s.count - index - 1
+            
+            guard left < right else {
+                break
+            }
+            
+            let temp = s[left]
+            s[left] = s[right]
+            s[right] = temp
+        }
     }
 }
