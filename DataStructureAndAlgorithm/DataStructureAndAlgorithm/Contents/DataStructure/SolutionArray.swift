@@ -28,7 +28,13 @@ class SolutionArray {
 //        print(arrayPairSum([7,3,1,0,0,6]))
 //        print(twoSum([2, 7, 11, 15], 9))
         
-        print(findMaxConsecutiveOnes([1,1,0,1,1,1]))
+//        print(findMaxConsecutiveOnes([1,1,0,1,1,1]))
+        
+//        var array = [1, 2]
+//        rotate(&array, 1)
+//        print(array)
+        
+        print(getRow(3))
     }
     
     //MARK: 二维数组对角线遍历算法
@@ -321,6 +327,100 @@ extension SolutionArray {
         
         return minLength
     }
-    
-    
+}
+
+//mark: 旋转数组
+extension SolutionArray {
+    func rotate(_ nums: inout [Int], _ k: Int) {
+        guard nums.count > 1 else {
+            return
+        }
+        
+        let k = k % nums.count
+        
+        guard k != 0 else {
+            return
+        }
+        
+        var array = [Int]()
+        
+        for i in 0 ..< k {
+            let index = nums.count - k + i
+            array.append(nums[index])
+        }
+        
+        for i in 0 ..< nums.count - k {
+            let index = nums.count - 1 - i
+            nums[index] = nums[index - k]
+        }
+        
+        for i in 0 ..< k {
+            nums[i] = array[i]
+        }
+    }
+}
+
+// 杨辉三角，获取第N行
+extension SolutionArray {
+    func getRow(_ rowIndex: Int) -> [Int] {
+        var result = [Int]()
+        var temps = result
+        
+        for i in 0 ... rowIndex {
+            temps = result
+            result.removeAll()
+            
+            for j in 0 ..< i + 1 {
+                var num1 = 0
+                if temps.count > j {
+                    num1 = temps[j]
+                }
+                var num2 = 0
+                if j - 1 >= 0 && temps.count > j - 1 {
+                    num2 = temps[j - 1]
+                }
+                
+                var num = num1 + num2
+                num = max(1, num)
+                result.append(num)
+            }
+        }
+        return result
+    }
+}
+
+//MARK: 删除数组中的重复项
+extension SolutionArray {
+    func removeDuplicates(_ nums: inout [Int]) -> Int {
+        var set = Set<Int>()
+        let count = nums.count
+        for i in 0 ..< count {
+            let index = count - i - 1
+            if set.contains(nums[index]) {
+                nums.remove(at: index)
+            } else {
+                set.insert(nums[index])
+            }
+        }
+        return nums.count
+    }
+}
+
+//MARK: 将所有0移到数组的末尾
+extension SolutionArray {
+    func moveZeroes(_ nums: inout [Int]) {
+        var zeroCount = 0
+        let numCount = nums.count
+        for i in 0 ..< numCount {
+            let index = numCount - i - 1
+            if nums[index] == 0 {
+                nums.remove(at: index)
+                zeroCount += 1
+            }
+        }
+        
+        for _ in numCount - zeroCount ..< numCount {
+            nums.append(0)
+        }
+     }
 }

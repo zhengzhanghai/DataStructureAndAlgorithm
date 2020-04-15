@@ -114,3 +114,25 @@ class SolutionString: NSObject {
         return commonPrefix
     }
 }
+
+//MARK: 反转字符串的单词
+extension SolutionArray {
+    /// 反转字符串的单词
+    func reverseWords(_ s: String) -> String {
+        return s.split(separator: " ").reversed().joined(separator: " ")
+    }
+    
+    func reverseWords3(_ s: String) -> String {
+        var array = s.components(separatedBy: " ")
+        for i in 0 ..< array.count {
+            let str = array[i]
+            var resultStr = ""
+            for j in 0 ..< str.count {
+                let index = str.count - j - 1
+                resultStr += str[str.index(str.startIndex, offsetBy: index) ... str.index(str.startIndex, offsetBy: index)]
+            }
+            array[i] = resultStr
+        }
+        return array.joined(separator: " ")
+    }
+}
