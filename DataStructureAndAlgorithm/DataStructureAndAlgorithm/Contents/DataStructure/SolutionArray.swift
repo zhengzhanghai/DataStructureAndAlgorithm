@@ -290,3 +290,37 @@ extension SolutionArray {
         return maxCount
     }
 }
+
+//MARK: 长度最小的子数组
+extension SolutionArray {
+    /// 长度最小的子数组，使用滑动窗口解，时间复杂度O(n)
+    func minSubArrayLen(_ s: Int, _ nums: [Int]) -> Int {
+        var left = 0
+        var right = 0
+        var sum = 0
+        let numCount = nums.count
+        var minLength = numCount + 1
+        
+        while left < numCount {
+            if right < numCount && sum < s {
+                sum += nums[right]
+                right += 1
+            } else {
+                sum -= nums[left]
+                left += 1
+            }
+            
+            if sum >= s {
+                minLength = min(minLength, right - left)
+            }
+        }
+        
+        if minLength == numCount + 1 {
+            return 0
+        }
+        
+        return minLength
+    }
+    
+    
+}
