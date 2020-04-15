@@ -13,10 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        SolutionArray().test()
+//        SolutionArray().test()
 //        SolutionString().test()
-        
-  
+       
     }
 
 
