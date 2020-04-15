@@ -93,5 +93,94 @@ class LinkedList {
             deletedNode?.next = nil
         }
     }
+    
+
 }
 
+//MARK: 链表反转
+extension SolutionLinkedList {
+    func reverseList(_ head: ListNode?) -> ListNode? {
+        
+        let currentNode = head
+        var newHead = head
+        
+        while currentNode?.next != nil {
+            let nextNode = currentNode?.next
+            currentNode?.next = nextNode?.next
+            nextNode?.next = newHead
+            newHead = nextNode
+        }
+        
+        return newHead
+    }
+}
+
+//MARK: 删除链表中为某值得所有节点
+extension SolutionLinkedList {
+    func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
+        var newHead = head
+        var previousNode: ListNode? = nil
+        var currentNode = head
+        
+        while currentNode != nil {
+            
+            if previousNode == nil { // 当前在头结点
+                if currentNode!.val == val {
+                    currentNode = currentNode?.next
+                    newHead = currentNode
+                } else {
+                    previousNode = currentNode
+                    currentNode = currentNode?.next
+                }
+            } else {
+                if currentNode!.val == val {
+                    previousNode?.next = currentNode?.next
+                    currentNode = currentNode?.next
+                } else {
+                    previousNode = currentNode
+                    currentNode = currentNode?.next
+                }
+            }
+        }
+        
+        return newHead
+    }
+}
+
+//MARK:奇偶链表,把奇数序号的节点放一起，偶数序号节点的放一起
+extension SolutionLinkedList {
+    func oddEvenList(_ head: ListNode?) -> ListNode? {
+        var oddHead: ListNode? = nil
+        var oddTail: ListNode? = nil
+        var evenTail: ListNode? = nil
+        
+        var current = head
+        var count = 0
+        
+        while current != nil {
+            if count % 2 == 0 { // 偶数序号节点
+                evenTail = current
+            } else { // 奇数序号节点
+                if oddHead == nil {
+                    oddHead = current
+                }
+                evenTail?.next = current?.next
+                if oddTail == nil {
+                    oddTail = current
+                } else {
+                    oddTail?.next = current
+                }
+                oddTail = current
+            }
+            
+            count += 1
+            current = current?.next
+            oddTail?.next = nil
+        }
+        
+        evenTail?.next = oddHead
+        
+        return head
+    }
+}
+//  1   2   3   3
