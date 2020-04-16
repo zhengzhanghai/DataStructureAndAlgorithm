@@ -196,3 +196,37 @@ extension SolutionLinkedList {
         return true
     }
 }
+
+
+//MARK: 合并两个有序的链表
+extension SolutionLinkedList {
+    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var head: ListNode? = nil
+        
+        var node1 = l1
+        var node2 = l2
+        var currentNode: ListNode? = nil
+        
+        while node1 != nil || node2 != nil {
+            let isAddNode1 = node2 == nil || (node1 != nil && node2 != nil && node1!.val <= node2!.val)
+            let addedNode = isAddNode1 ? node1 : node2
+            
+            if currentNode == nil {
+                currentNode = addedNode
+                head = currentNode
+            } else {
+                currentNode?.next = addedNode
+                currentNode = addedNode
+            }
+            
+            if isAddNode1 {
+                node1 = node1?.next
+            } else {
+                node2 = node2?.next
+            }
+        }
+        
+        return head
+    }
+}
+
