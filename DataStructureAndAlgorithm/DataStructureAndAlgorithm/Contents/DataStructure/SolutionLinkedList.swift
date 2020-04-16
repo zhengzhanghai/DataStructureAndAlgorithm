@@ -103,3 +103,38 @@ extension SolutionLinkedList {
         }
     }
 }
+
+//MARK: 回文链表
+extension SolutionLinkedList {
+    /// 第一种方法，运用快慢指针找中心位置，一次遍历解决问题
+    func isPalindrome(_ head: ListNode?) -> Bool {
+        
+        var fastNode = head
+        var slowNode = head
+        var isCenter = false
+        var nums = [Int]()
+        
+        while slowNode != nil {
+
+            if isCenter { // 找到中心之后
+                if slowNode!.val != nums.removeLast() {
+                    return false
+                }
+            } else { // 找到中心之前
+                if fastNode?.next == nil { // 说明总结点数是奇数
+                    isCenter = true
+                } else if fastNode?.next?.next == nil { // 总节点数是偶数
+                    isCenter = true
+                    nums.append(slowNode!.val)
+                } else {
+                    nums.append(slowNode!.val)
+                }
+                fastNode = fastNode?.next?.next
+            }
+            
+            slowNode = slowNode?.next
+        }
+        
+        return true
+    }
+}
