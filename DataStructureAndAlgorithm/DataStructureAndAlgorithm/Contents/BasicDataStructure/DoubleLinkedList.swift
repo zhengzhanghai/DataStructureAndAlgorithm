@@ -24,6 +24,7 @@ class DoubleListNode {
 class DoubleLinkedList {
     
     var head: DoubleListNode?
+    var tail: DoubleListNode?
     
     init() {}
     
@@ -45,20 +46,20 @@ class DoubleLinkedList {
         node.next = head
         head?.prev = node
         head = node
+        if tail == nil {
+            tail = node
+        }
     }
     
     func addAtTail(_ val: Int) {
-        var currentNode = head
-        while currentNode?.next != nil {
-            currentNode = currentNode?.next
-        }
-        
         let node = DoubleListNode(val)
-        if currentNode == nil {
+        if head == nil {
             head = node
+            tail = node
         } else {
-            node.prev = currentNode
-            currentNode?.next = node
+            node.prev = tail
+            tail?.next = node
+            tail = node
         }
     }
     
@@ -78,6 +79,10 @@ class DoubleLinkedList {
             currentNode?.next?.prev = node
             currentNode?.next = node
             node.prev = currentNode
+            
+            if node.next == nil {
+                tail = node
+            }
         }
     }
     
@@ -91,11 +96,17 @@ class DoubleLinkedList {
         
         if index == 0 || currentNode == nil {
             head = head?.next
+            if head == nil {
+                tail = nil
+            }
         } else if count == index - 1 {
             let deletedNode = currentNode?.next
             
             deletedNode?.next?.prev = currentNode
             currentNode?.next = deletedNode?.next
+            if deletedNode?.next == nil {
+                tail = currentNode
+            }
         }
     }
 }
