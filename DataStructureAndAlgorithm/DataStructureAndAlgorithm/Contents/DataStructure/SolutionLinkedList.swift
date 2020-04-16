@@ -9,6 +9,23 @@
 import UIKit
 
 class SolutionLinkedList {
+    func test() {
+        let node4 = ListNode(1)
+        let node3 = ListNode(2)
+        node3.next = node4
+        let node2 = ListNode(2)
+        node2.next = node3
+        let node1 = ListNode(2)
+        node1.next = node2
+        let node = ListNode(1)
+        node.next = node1
+        
+        _ = isPalindrome(node)
+    }
+}
+
+extension SolutionLinkedList {
+    
     func hasCycle(_ head: ListNode?) -> Bool {
         var quickNode = head
         var lowNode = head
@@ -106,33 +123,74 @@ extension SolutionLinkedList {
 
 //MARK: 回文链表
 extension SolutionLinkedList {
-    /// 第一种方法，运用快慢指针找中心位置，一次遍历解决问题
+    /// 第一种方法，运用快慢指针找中心位置，找到中心前将值存入栈或者数组
+    /// 一次遍历解决问题，空间复杂度O(n/2)
+//    func isPalindrome(_ head: ListNode?) -> Bool {
+//
+//        var fastNode = head
+//        var slowNode = head
+//        var isCenter = false
+//        var nums = [Int]()
+//
+//        while slowNode != nil {
+//
+//            if isCenter { // 找到中心之后
+//                if slowNode!.val != nums.removeLast() {
+//                    return false
+//                }
+//            } else { // 找到中心之前
+//                if fastNode?.next == nil { // 说明总结点数是奇数
+//                    isCenter = true
+//                } else if fastNode?.next?.next == nil { // 总节点数是偶数
+//                    isCenter = true
+//                    nums.append(slowNode!.val)
+//                } else {
+//                    nums.append(slowNode!.val)
+//                }
+//                fastNode = fastNode?.next?.next
+//            }
+//
+//            slowNode = slowNode?.next
+//        }
+//
+//        return true
+//    }
+    
+    /// 第二种方法，快慢指针找中心点，找到前，将链表反转，找到后，从中间向两边遍历并比较
+    /// 一次遍历，空间复杂度O(1)
     func isPalindrome(_ head: ListNode?) -> Bool {
         
         var fastNode = head
         var slowNode = head
-        var isCenter = false
-        var nums = [Int]()
+        var previousNode: ListNode? = nil
+        var reversingNode: ListNode? = nil
+        var findedCenter = false // 是否找到了中点
         
         while slowNode != nil {
-
-            if isCenter { // 找到中心之后
-                if slowNode!.val != nums.removeLast() {
+            let slowNextNode = slowNode?.next
+            let fastNextNode = fastNode?.next
+            if findedCenter { // 找到中心之后
+                if slowNode!.val != reversingNode!.val {
                     return false
                 }
+                reversingNode = reversingNode?.next
             } else { // 找到中心之前
                 if fastNode?.next == nil { // 说明总结点数是奇数
-                    isCenter = true
+                    findedCenter = true
+                    reversingNode = previousNode
                 } else if fastNode?.next?.next == nil { // 总节点数是偶数
-                    isCenter = true
-                    nums.append(slowNode!.val)
+                    findedCenter = true
+                    reversingNode = slowNode
+                    slowNode?.next = previousNode
+                    previousNode = slowNode
                 } else {
-                    nums.append(slowNode!.val)
+                    slowNode?.next = previousNode
+                    previousNode = slowNode
                 }
-                fastNode = fastNode?.next?.next
+                fastNode = fastNextNode?.next
             }
             
-            slowNode = slowNode?.next
+            slowNode = slowNextNode
         }
         
         return true

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 
 //        SolutionArray().test()
 //        SolutionString().test()
-       
+        SolutionLinkedList().test()
     }
 
 
