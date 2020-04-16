@@ -10,17 +10,31 @@ import UIKit
 
 class SolutionLinkedList {
     func test() {
-        let node4 = ListNode(1)
+//        let node4 = ListNode(1)
+//        let node3 = ListNode(2)
+//        node3.next = node4
+//        let node2 = ListNode(2)
+//        node2.next = node3
+//        let node1 = ListNode(2)
+//        node1.next = node2
+//        let node = ListNode(1)
+//        node.next = node1
+//
+//        _ = isPalindrome(node)
+        let node1 = ListNode(3)
+        let node2 = ListNode(4)
+        node2.next = node1
         let node3 = ListNode(2)
-        node3.next = node4
-        let node2 = ListNode(2)
-        node2.next = node3
-        let node1 = ListNode(2)
-        node1.next = node2
-        let node = ListNode(1)
-        node.next = node1
+        node3.next = node2
         
-        _ = isPalindrome(node)
+        let node4 = ListNode(4)
+        let node5 = ListNode(6)
+        node5.next = node4
+        let node6 = ListNode(5)
+        node6.next = node5
+        
+        let node = addTwoNumbers(node3, node6)
+        print("")
     }
 }
 
@@ -230,3 +244,55 @@ extension SolutionLinkedList {
     }
 }
 
+//MARK: 链表两数相加
+extension SolutionLinkedList {
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        let reversingList1 = reverseList(l1)
+        let reversingList2 = reverseList(l2)
+        var newList: ListNode? = nil
+        var newNode: ListNode? = nil
+        
+        var node1 = reversingList1
+        var node2 = reversingList2
+        var extraNum = 0
+        
+        while node1 != nil || node2 != nil {
+            var num1 = 0
+            var num2 = 0
+            
+            if let node1 = node1 {
+                num1 = node1.val
+            }
+            if let node2 = node2 {
+                num2 = node2.val
+            }
+            
+            var num = num1 + num2 + extraNum
+            extraNum = num / 10
+            num = num % 10
+            
+            let node = ListNode(num)
+            if newNode == nil {
+                newNode = node
+                newList = node
+            } else {
+                newNode?.next = node
+                newNode = node
+            }
+            
+            node1 = node1?.next
+            node2 = node2?.next
+        }
+        
+        if extraNum == 1 {
+            let node = ListNode(extraNum)
+            newNode?.next = node
+            newNode = node
+        }
+        
+        return reverseList(newList)
+    }
+}
+
+// 2 4 3
+// 5 6 4
