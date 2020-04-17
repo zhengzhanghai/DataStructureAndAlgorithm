@@ -294,5 +294,109 @@ extension SolutionLinkedList {
     }
 }
 
-// 2 4 3
-// 5 6 4
+
+//MARK: 扁平化多级双向链表
+extension SolutionLinkedList {
+    class Solution {
+        func flatten(_ head: Node?) -> Node? {
+            return flattenSub(head).head
+        }
+        
+        func flattenSub(_ head: Node?) -> (head: Node?, tail: Node?) {
+            var node = head
+            var previousNode: Node? = nil
+            
+            while node != nil && node?.child == nil {
+                previousNode = node
+                node = node?.next
+            }
+            
+            if node?.child == nil {
+                return (head, previousNode ?? head)
+            }
+            
+            let child = flattenSub(node?.child)
+            let next = flattenSub(node?.next)
+            
+            node?.next = child.head
+            child.head?.prev = node
+            
+            child.tail?.next = next.head
+            next.head?.prev = child.tail
+            node?.child = nil
+            
+            return (head, next.tail)
+        }
+    }
+}
+
+//MARK: 复制带随机指针的链表(深拷贝)
+extension SolutionLinkedList {
+    func copyRandomList(_ head: Node1?) -> Node1? {
+        
+        var originNodes = [Node1]()
+        var newNodes = [Node1]()
+        
+        var node = head
+        while node != nil {
+            originNodes.append(node!)
+            let newNode = Node1(node!.val)
+            newNodes.append(newNode)
+            node = node?.next
+        }
+        
+        let newHead = newNodes.first
+        var count = 0
+        node = head
+        
+        while node != nil {
+            if newNodes.count > count + 1 {
+                newNodes[count].next = newNodes[count + 1]
+            }
+            
+            if let random = node?.random {
+                for index in 0 ..< originNodes.count {
+                    if random === originNodes[index] {
+                        newNodes[count].random = newNodes[index]
+                        break
+                    }
+                }
+            }
+        
+            count += 1
+            node = node?.next
+        }
+        
+        return newHead
+    }
+}
+
+//MARK: 旋转链表
+extension SolutionLinkedList {
+    func rotateRight(_ head: ListNode?, _ k: Int) -> ListNode? {
+        
+        var nodes = [ListNode]()
+        var node = head
+        
+        while node != nil {
+            nodes.append(node!)
+            node = node?.next
+        }
+            
+        guard nodes.count > 1 else {
+            return head
+        }
+        
+        let k = k % nodes.count
+        
+        guard k > 0 else {
+            return head
+        }
+        
+        let newHead = nodes[nodes.count - k]
+        nodes.last?.next = head
+        nodes[nodes.count - k - 1].next = nil
+        
+        return newHead
+    }
+}
