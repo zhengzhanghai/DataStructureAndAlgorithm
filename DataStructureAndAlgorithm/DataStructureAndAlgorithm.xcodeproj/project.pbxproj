@@ -20,6 +20,7 @@
 		AD9ED7242446ED48008596AA /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9ED7232446ED48008596AA /* LinkedList.swift */; };
 		AD9ED72624470289008596AA /* SolutionLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9ED72524470289008596AA /* SolutionLinkedList.swift */; };
 		ADBFB5F424494617004961CA /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5F324494617004961CA /* Node.swift */; };
+		ADBFB5F624498764004961CA /* HashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5F524498764004961CA /* HashSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		AD9ED7232446ED48008596AA /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		AD9ED72524470289008596AA /* SolutionLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionLinkedList.swift; sourceTree = "<group>"; };
 		ADBFB5F324494617004961CA /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		ADBFB5F524498764004961CA /* HashSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				AD9ED7232446ED48008596AA /* LinkedList.swift */,
 				AD6CC52B24484D1C005AC925 /* DoubleLinkedList.swift */,
 				ADBFB5F324494617004961CA /* Node.swift */,
+				ADBFB5F524498764004961CA /* HashSet.swift */,
 			);
 			path = BasicDataStructure;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				AD22856424454F250077F7C8 /* ViewController.swift in Sources */,
 				ADBFB5F424494617004961CA /* Node.swift in Sources */,
 				AD22856024454F250077F7C8 /* AppDelegate.swift in Sources */,
+				ADBFB5F624498764004961CA /* HashSet.swift in Sources */,
 				AD228578244550990077F7C8 /* SolutionArray.swift in Sources */,
 				AD9ED72624470289008596AA /* SolutionLinkedList.swift in Sources */,
 				AD6CC52C24484D1C005AC925 /* DoubleLinkedList.swift in Sources */,
