@@ -22,6 +22,7 @@
 		ADBFB5F424494617004961CA /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5F324494617004961CA /* Node.swift */; };
 		ADBFB5F624498764004961CA /* HashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5F524498764004961CA /* HashSet.swift */; };
 		ADBFB5F8244989EF004961CA /* HashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5F7244989EF004961CA /* HashMap.swift */; };
+		ADBFB5FA2449909C004961CA /* SolutionHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5F92449909C004961CA /* SolutionHash.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		ADBFB5F324494617004961CA /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		ADBFB5F524498764004961CA /* HashSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashSet.swift; sourceTree = "<group>"; };
 		ADBFB5F7244989EF004961CA /* HashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashMap.swift; sourceTree = "<group>"; };
+		ADBFB5F92449909C004961CA /* SolutionHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionHash.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				AD228577244550990077F7C8 /* SolutionArray.swift */,
 				AD22857924456F680077F7C8 /* SolutionString.swift */,
 				AD9ED72524470289008596AA /* SolutionLinkedList.swift */,
+				ADBFB5F92449909C004961CA /* SolutionHash.swift */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				ADBFB5F8244989EF004961CA /* HashMap.swift in Sources */,
 				AD22856024454F250077F7C8 /* AppDelegate.swift in Sources */,
 				ADBFB5F624498764004961CA /* HashSet.swift in Sources */,
+				ADBFB5FA2449909C004961CA /* SolutionHash.swift in Sources */,
 				AD228578244550990077F7C8 /* SolutionArray.swift in Sources */,
 				AD9ED72624470289008596AA /* SolutionLinkedList.swift in Sources */,
 				AD6CC52C24484D1C005AC925 /* DoubleLinkedList.swift in Sources */,

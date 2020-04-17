@@ -15,7 +15,16 @@ class ViewController: UIViewController {
 
 //        SolutionArray().test()
 //        SolutionString().test()
-        SolutionLinkedList().test()
+//        SolutionLinkedList().test()
+    
+        SolutionHash().test()
+        
+//        var dd = [Int: Int]()
+//
+//        dd[1] = 2
+//
+//        print("")
+   
     }
 
 
