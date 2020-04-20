@@ -17,14 +17,14 @@ class ViewController: UIViewController {
 //        SolutionString().test()
 //        SolutionLinkedList().test()
     
-        SolutionHash().test()
+//        SolutionHash().test()
         
-//        var dd = [Int: Int]()
-//
-//        dd[1] = 2
-//
-//        print("")
-   
+        
+//        var array = [String]()
+//        for index in 0 ..< 100000 {
+//            array.append(String(index))
+//        }
+        SolutionTwoPointSearch().test()
     }
 
 
