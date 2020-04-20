@@ -454,5 +454,111 @@ extension SolutionHash {
     }
 }
 
+//MARK: 前K个高频元素
+extension SolutionHash {
+    func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
+        var hash = [Int: Int]()
+        for num in nums {
+            if let count = hash[num] {
+                hash[num] = count + 1
+            } else {
+                hash[num] = 1
+            }
+        }
+        
+        var result = [Int]()
+        while !hash.isEmpty && result.count < k {
+            var maxIndex = 0
+            var maxCount = 0
+            for (num, count) in hash {
+                if count > maxCount {
+                    maxCount = count
+                    maxIndex = num
+                }
+            }
+            result.append(maxIndex)
+            hash.removeValue(forKey: maxIndex)
+        }
+        
+        return result
+    }
+}
 
+
+//MARK: 单词的唯一缩写
+class ValidWordAbbr {
+    var hash = [String: Set<String>]()
+    
+    init(_ dictionary: [String]) {
+        for str in dictionary {
+            if hash[abbrWord(str)] == nil {
+                hash[abbrWord(str)] = [str]
+            } else {
+                hash[abbrWord(str)]?.insert(str)
+            }
+        }
+    }
+    
+    func isUnique(_ word: String) -> Bool {
+        if let array = hash[abbrWord(word)] {
+            return array.count <= 1 && array.contains(word)
+        } else {
+            return true
+        }
+    }
+    
+    func abbrWord(_ str: String) -> String {
+        guard str.count > 2 else {return str}
+        return String(str.first!) + String(str.count - 2) + String(str.last!)
+    }
+}
+
+
+//MARK:常数时间插入、删除和获取随机元素
+class RandomizedSet {
+    
+    var list = [Int]()
+    var hash = [Int: Int]()
+    var size = 0
+    
+    init() {
+        
+    }
+    
+    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+    func insert(_ val: Int) -> Bool {
+        if list.contains(val) {
+            return false
+        }
+        list.append(val)
+        hash[val] = size
+        size += 1
+        return true
+    }
+    
+    /** Removes a value from the set. Returns true if the set contained the specified element. */
+    func remove(_ val: Int) -> Bool {
+        let index = hash[val]
+        if index == nil {
+            return false
+        } else {
+            let lastIndex = size - 1
+            let lastVal = list.last!
+            hash[lastVal] = index!
+            
+            list[lastIndex] = list[index!]
+            list[index!] = lastVal
+            
+            list.removeLast()
+            hash.removeValue(forKey: val)
+            size -= 1
+            return true
+        }
+    }
+    
+    /** Get a random element from the set. */
+    func getRandom() -> Int {
+        return list.randomElement() ?? -1
+    }
+}
 // 1  2  3  4  5
