@@ -16,7 +16,9 @@ class SolutionTwoPointSearch {
 //
 //        print(searchRange([5,7,7,8,8,10], 8))
         
-        print(findClosestElements([1,1,1,10,10,10], 1, 9))
+//        print(findClosestElements([1,1,1,10,10,10], 1, 9))
+        
+        print(myPow(2, -10))
     }
 }
 
@@ -348,5 +350,78 @@ extension SolutionTwoPointSearch {
         return result
     }
 }
-//  1, 2, 4, 5, 6
-//  3   -1
+
+//Pow(x, n) 实现幂运算, 下面有种方法，一种递归，一种不是递归
+extension SolutionTwoPointSearch {
+//    func myPow(_ x: Double, _ n: Int) -> Double {
+//        guard n != 0 else {
+//            return 1
+//        }
+//        var result: Double = 1
+//        var x = x
+//        var i = n
+//        while i != 0 {
+//            if i % 2 != 0 {
+//                result *= x
+//            }
+//            x *= x
+//
+//            i /= 2
+//        }
+//
+//        return n > 0 ? result : 1 / result
+//    }
+    
+    func myPow(_ x: Double, _ n: Int) -> Double {
+        return powNum(x, n)
+    }
+    
+    func powNum(_ x: Double, _ n: Int) -> Double {
+        guard n != 0 else {
+            return 1
+        }
+        guard abs(n) > 1 else {
+            return n > 0 ? x : 1 / x
+        }
+        if n % 2 == 0 {
+            return powNum(x * x, n / 2)
+        } else {
+            return (n > 0 ? x : 1 / x) * powNum(x * x, n / 2)
+        }
+    }
+}
+
+//MARK: 有效的完全平方数
+extension SolutionTwoPointSearch {
+    func isPerfectSquare(_ num: Int) -> Bool {
+        guard num >= 0 else {
+            return false
+        }
+        
+        var left = 0
+        var right = num
+        
+        while left <= right {
+            let middle = (left + right) / 2
+            let middlePow = middle * middle
+            if middlePow == num {
+                return true
+            } else if middlePow < num {
+                left = middle + 1
+            } else {
+                right = middle - 1
+            }
+        }
+        
+        return false
+    }
+}
+
+//MARK: 寻找比目标字母大的最小字母
+extension SolutionTwoPointSearch {
+//    func nextGreatestLetter(_ letters: [Character], _ target: Character) -> Character {
+//
+//    }
+}
+
+

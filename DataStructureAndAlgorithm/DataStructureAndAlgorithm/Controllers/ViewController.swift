@@ -24,7 +24,9 @@ class ViewController: UIViewController {
 //        for index in 0 ..< 100000 {
 //            array.append(String(index))
 //        }
-        SolutionTwoPointSearch().test()
+//        SolutionTwoPointSearch().test()
+        
+   
     }
 
 
