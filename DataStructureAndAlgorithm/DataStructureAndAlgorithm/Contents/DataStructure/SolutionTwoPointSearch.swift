@@ -18,7 +18,8 @@ class SolutionTwoPointSearch {
         
 //        print(findClosestElements([1,1,1,10,10,10], 1, 9))
         
-        print(myPow(2, -10))
+//        print(myPow(2, -10))
+        print(findMin([10, 1, 10, 10, 10]))
     }
 }
 
@@ -422,6 +423,33 @@ extension SolutionTwoPointSearch {
 //    func nextGreatestLetter(_ letters: [Character], _ target: Character) -> Character {
 //
 //    }
+}
+
+// 寻找重复的数
+extension SolutionTwoPointSearch {
+    func findDuplicate(_ nums: [Int]) -> Int {
+        var fast = 0
+        var slow = 0
+        let numCount = nums.count
+        
+        while true {
+            if fast == numCount - 2 {
+                fast = numCount - 1
+            } else {
+                fast = (fast + 2) % numCount
+            }
+            
+            if fast != slow && nums[fast] == nums[slow] {
+                return nums[fast]
+            }
+            
+            slow = (slow + 1) % numCount
+            
+            if fast != slow && nums[fast] == nums[slow] {
+                return nums[fast]
+            }
+        }
+    }
 }
 
 
