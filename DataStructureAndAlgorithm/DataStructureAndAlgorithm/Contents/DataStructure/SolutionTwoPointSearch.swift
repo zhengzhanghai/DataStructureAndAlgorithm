@@ -12,7 +12,11 @@ class SolutionTwoPointSearch {
     func test() {
 //        print(guessNumber(10))
 //        print(search1([4,5,6,7,0,1,2], 6))
-        print(findPeakElement([1,2,3,4]))
+//        print(findPeakElement([1,2,3,4]))
+//
+//        print(searchRange([5,7,7,8,8,10], 8))
+        
+        print(findClosestElements([1,1,1,10,10,10], 1, 9))
     }
 }
 
@@ -236,3 +240,113 @@ extension SolutionTwoPointSearch {
         return minNum
     }
 }
+
+//MARK: 在排序数组中查找元素的第一个和最后一个位置
+extension SolutionTwoPointSearch {
+    func searchRange(_ nums: [Int], _ target: Int) -> [Int] {
+        return search(nums, 0, nums.count - 1, target)
+    }
+    
+    func search(_ nums: [Int], _ left: Int, _ right: Int, _ target: Int) -> [Int] {
+        
+        if left > right {
+            return [-1, -1]
+        }
+        
+        var result = [-1, -1]
+        
+        let middle = (left + right) / 2
+        
+        if nums[middle] > target {
+            return search(nums, left, middle - 1, target)
+        } else if nums[middle] < target {
+            return search(nums, middle + 1, right, target)
+        } else {
+            result = [middle, middle]
+            let leftResult: [Int] = search(nums, left, middle - 1, target)
+            if leftResult[0] != -1 {
+                result[0] = min(result[0], leftResult[0])
+            }
+            let rightResult: [Int] = search(nums, middle + 1, right, target)
+            if rightResult[1] != -1 {
+                result[1] = max(result[1], rightResult[1])
+            }
+        }
+        
+        return result
+    }
+}
+//        [1, 1, 1, 10, 10, 10]
+//               1
+//               9
+
+//MARK: 找到K个最接近的元素
+extension SolutionTwoPointSearch {
+    func findClosestElements(_ arr: [Int], _ k: Int, _ x: Int) -> [Int] {
+        
+        guard !arr.isEmpty else {return []}
+        
+        var minIndex = Int.max
+        var minVal = Int.max
+        
+        var left = 0
+        var right = arr.count - 1
+        
+        while left <= right {
+            if right - left <= 1 {
+                if abs(arr[left] - x) <= abs(arr[right] - x) {
+                    minIndex = left
+                } else {
+                    minIndex = right
+                }
+                break
+            } else {
+                let middle = (left + right) / 2
+                if arr[middle] == x {
+                    minIndex = middle
+                    minVal = 0
+                    break
+                } else {
+                    let val = abs(arr[middle] - x)
+                    if val < minVal {
+                        minVal = val
+                        minIndex = left
+                    }
+                    if arr[middle] > x {
+                        right = middle
+                    } else {
+                        left = middle
+                    }
+                }
+            }
+        }
+        
+        var result = [arr[minIndex]]
+        
+        left = minIndex
+        right = minIndex
+        
+        while result.count < k {
+            var leftVal = Int.max
+            if left - 1 >= 0 {
+                leftVal = abs(arr[left - 1] - x)
+            }
+            var rightVal = Int.max
+            if right + 1 < arr.count {
+                rightVal = abs(arr[right + 1] - x)
+            }
+            
+            if leftVal <= rightVal { // 取左
+                left -= 1
+                result.insert(arr[left], at: 0)
+            } else { // 取右
+                right += 1
+                result.append(arr[right])
+            }
+        }
+        
+        return result
+    }
+}
+//  1, 2, 4, 5, 6
+//  3   -1
