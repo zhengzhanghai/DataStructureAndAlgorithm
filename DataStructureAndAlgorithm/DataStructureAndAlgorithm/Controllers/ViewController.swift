@@ -25,6 +25,8 @@ class ViewController: UIViewController {
 //            array.append(String(index))
 //        }
         SolutionTwoPointSearch().test()
+        
+   
     }
 
 
