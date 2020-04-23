@@ -452,4 +452,25 @@ extension SolutionTwoPointSearch {
     }
 }
 
+extension SolutionTwoPointSearch {
+    func smallestDistancePair(_ nums: [Int], _ k: Int) -> Int {
+        var distances = [Int]()
+        for i in 0 ..< nums.count {
+            for j in i+1 ..< nums.count {
+                let val = abs(nums[j] - nums[i])
+//                if !distances.contains(val) {
+//                    distances.append(val)
+//                }
+                distances.append(val)
 
+            }
+        }
+        
+        guard distances.count >= k else {
+            return -1
+        }
+        
+        distances.sort()
+        return distances[k - 1]
+    }
+}

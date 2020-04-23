@@ -25,6 +25,9 @@
 		ADBFB5F8244989EF004961CA /* HashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5F7244989EF004961CA /* HashMap.swift */; };
 		ADBFB5FA2449909C004961CA /* SolutionHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5F92449909C004961CA /* SolutionHash.swift */; };
 		ADBFB5FC244D5AB4004961CA /* SolutionTwoPointSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB5FB244D5AB4004961CA /* SolutionTwoPointSearch.swift */; };
+		ADBFB6BB24513D8C004961CA /* SolutionBinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB6BA24513D8C004961CA /* SolutionBinaryTree.swift */; };
+		ADBFB6BD24513DD8004961CA /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB6BC24513DD8004961CA /* TreeNode.swift */; };
+		ADBFB6BF245140F4004961CA /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBFB6BE245140F4004961CA /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		ADBFB5F7244989EF004961CA /* HashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashMap.swift; sourceTree = "<group>"; };
 		ADBFB5F92449909C004961CA /* SolutionHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionHash.swift; sourceTree = "<group>"; };
 		ADBFB5FB244D5AB4004961CA /* SolutionTwoPointSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionTwoPointSearch.swift; sourceTree = "<group>"; };
+		ADBFB6BA24513D8C004961CA /* SolutionBinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionBinaryTree.swift; sourceTree = "<group>"; };
+		ADBFB6BC24513DD8004961CA /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		ADBFB6BE245140F4004961CA /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 				ADBFB5F92449909C004961CA /* SolutionHash.swift */,
 				AD38D9FA244AA59000895806 /* SolutionLogger.swift */,
 				ADBFB5FB244D5AB4004961CA /* SolutionTwoPointSearch.swift */,
+				ADBFB6BA24513D8C004961CA /* SolutionBinaryTree.swift */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -139,6 +146,8 @@
 				ADBFB5F324494617004961CA /* Node.swift */,
 				ADBFB5F524498764004961CA /* HashSet.swift */,
 				ADBFB5F7244989EF004961CA /* HashMap.swift */,
+				ADBFB6BC24513DD8004961CA /* TreeNode.swift */,
+				ADBFB6BE245140F4004961CA /* Queue.swift */,
 			);
 			path = BasicDataStructure;
 			sourceTree = "<group>";
@@ -216,9 +225,12 @@
 			files = (
 				AD22856424454F250077F7C8 /* ViewController.swift in Sources */,
 				ADBFB5F424494617004961CA /* Node.swift in Sources */,
+				ADBFB6BD24513DD8004961CA /* TreeNode.swift in Sources */,
 				ADBFB5F8244989EF004961CA /* HashMap.swift in Sources */,
 				AD22856024454F250077F7C8 /* AppDelegate.swift in Sources */,
 				ADBFB5F624498764004961CA /* HashSet.swift in Sources */,
+				ADBFB6BB24513D8C004961CA /* SolutionBinaryTree.swift in Sources */,
+				ADBFB6BF245140F4004961CA /* Queue.swift in Sources */,
 				ADBFB5FA2449909C004961CA /* SolutionHash.swift in Sources */,
 				AD38D9FB244AA59000895806 /* SolutionLogger.swift in Sources */,
 				AD228578244550990077F7C8 /* SolutionArray.swift in Sources */,
