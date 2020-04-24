@@ -33,8 +33,7 @@ class SolutionLinkedList {
         let node6 = ListNode(5)
         node6.next = node5
         
-        let node = addTwoNumbers(node3, node6)
-        print("")
+        print(addTwoNumbers(node3, node6))
     }
 }
 
