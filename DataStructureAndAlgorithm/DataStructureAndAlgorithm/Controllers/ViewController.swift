@@ -18,8 +18,9 @@ class ViewController: UIViewController {
 //        SolutionLinkedList().test()
 //        SolutionHash().test()
 //        SolutionTwoPointSearch().test()
-        SolutionBinaryTree().test()
+//        SolutionBinaryTree().test()
         
+        LeetCode2().test()
    
     }
 
