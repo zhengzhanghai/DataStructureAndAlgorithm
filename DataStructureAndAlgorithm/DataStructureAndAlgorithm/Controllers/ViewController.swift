@@ -16,15 +16,9 @@ class ViewController: UIViewController {
 //        SolutionArray().test()
 //        SolutionString().test()
 //        SolutionLinkedList().test()
-    
 //        SolutionHash().test()
-        
-        
-//        var array = [String]()
-//        for index in 0 ..< 100000 {
-//            array.append(String(index))
-//        }
-        SolutionTwoPointSearch().test()
+//        SolutionTwoPointSearch().test()
+        SolutionBinaryTree().test()
         
    
     }
