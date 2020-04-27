@@ -24,7 +24,8 @@ class ViewController: UIViewController {
 //        SolutionPrimaryAlgorithm().test()
 //        LeetCode7().test()
 //        LeetCode8().test()
-        LeetCode15().test()
+//        LeetCode15().test()
+        LeetCode16().test()
    
     }
 
