@@ -15,6 +15,7 @@
 		AD22856C24454F270077F7C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD22856A24454F270077F7C8 /* LaunchScreen.storyboard */; };
 		AD228578244550990077F7C8 /* SolutionArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD228577244550990077F7C8 /* SolutionArray.swift */; };
 		AD22857A24456F680077F7C8 /* SolutionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD22857924456F680077F7C8 /* SolutionString.swift */; };
+		AD34683A2455BEA800B0C5E8 /* LeetCode9.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3468392455BEA800B0C5E8 /* LeetCode9.swift */; };
 		AD38D9FB244AA59000895806 /* SolutionLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38D9FA244AA59000895806 /* SolutionLogger.swift */; };
 		AD38D9FD2453AF9000895806 /* LeetCode3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38D9FC2453AF9000895806 /* LeetCode3.swift */; };
 		AD38D9FF2453C70100895806 /* LeetCode5.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38D9FE2453C70100895806 /* LeetCode5.swift */; };
@@ -50,6 +51,7 @@
 		AD22856D24454F270077F7C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD228577244550990077F7C8 /* SolutionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionArray.swift; sourceTree = "<group>"; };
 		AD22857924456F680077F7C8 /* SolutionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionString.swift; sourceTree = "<group>"; };
+		AD3468392455BEA800B0C5E8 /* LeetCode9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode9.swift; sourceTree = "<group>"; };
 		AD38D9FA244AA59000895806 /* SolutionLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionLogger.swift; sourceTree = "<group>"; };
 		AD38D9FC2453AF9000895806 /* LeetCode3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode3.swift; sourceTree = "<group>"; };
 		AD38D9FE2453C70100895806 /* LeetCode5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode5.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				ADEC1DE4245578E6004B6FCC /* LeetCode6.swift */,
 				ADEC1DE624557CFE004B6FCC /* LeetCode7.swift */,
 				ADEC1DE824558531004B6FCC /* LeetCode8.swift */,
+				AD3468392455BEA800B0C5E8 /* LeetCode9.swift */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				ADBFB6BF245140F4004961CA /* Queue.swift in Sources */,
 				ADBFB5FA2449909C004961CA /* SolutionHash.swift in Sources */,
 				ADEC1DE724557CFE004B6FCC /* LeetCode7.swift in Sources */,
+				AD34683A2455BEA800B0C5E8 /* LeetCode9.swift in Sources */,
 				AD38D9FD2453AF9000895806 /* LeetCode3.swift in Sources */,
 				AD38D9FB244AA59000895806 /* SolutionLogger.swift in Sources */,
 				AD38D9FF2453C70100895806 /* LeetCode5.swift in Sources */,
