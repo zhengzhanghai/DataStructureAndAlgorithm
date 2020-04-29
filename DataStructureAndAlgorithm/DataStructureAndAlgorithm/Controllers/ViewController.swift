@@ -33,7 +33,8 @@ class ViewController: UIViewController {
         //        LeetCode48().test()
         //        LeetCode55().test()
         //        LeetCode58().test()
-        LeetCode60().test()
+        //        LeetCode60().test()
+        LeetCode89().test()
         
     }
     
