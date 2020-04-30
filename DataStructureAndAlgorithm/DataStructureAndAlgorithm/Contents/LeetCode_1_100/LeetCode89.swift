@@ -11,7 +11,7 @@ import UIKit
 /// 89. 格雷编码
 class LeetCode89 {
     func test() {
-        print(grayCode(3))
+        print(grayCode(2))
     }
     
     func grayCode(_ n: Int) -> [Int] {
@@ -32,8 +32,8 @@ class LeetCode89 {
         var changeIndex = -1
         let totalCount = Int(pow(Double(2), Double(n)))
         var value = 0
-        
         var count = 0
+        
         while count < totalCount - 1 {
             
             for index in 0 ..< n {
@@ -46,12 +46,12 @@ class LeetCode89 {
                     isAdd = false
                 }
                 
-                value += values[index] * (isAdd ? 1 : -1)
-                if result.contains(value) {
+                var tempValue = value
+                tempValue += values[index] * (isAdd ? 1 : -1)
+                if result.contains(tempValue) {
                     continue
                 } else {
-                    print(value)
-                    print(nums)
+                    value = tempValue
                     result.append(value)
                     nums[index] = isAdd ? 1 : 0
                     changeIndex = index
