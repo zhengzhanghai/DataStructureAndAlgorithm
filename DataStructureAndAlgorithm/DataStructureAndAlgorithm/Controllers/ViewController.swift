@@ -19,24 +19,8 @@ class ViewController: UIViewController {
         //        SolutionHash().test()
         //        SolutionTwoPointSearch().test()
         //        SolutionBinaryTree().test()
-        //        LeetCode2().test()
-        //        LeetCode5().test()
-        //        SolutionPrimaryAlgorithm().test()
-        //        LeetCode7().test()
-        //        LeetCode8().test()
-        //        LeetCode15().test()
-        //        LeetCode16().test()
-        //        LeetCode20().test()
-        //        LeetCode25().test()
-        //        LeetCode32().test()
-        //        LeetCode38().test()
-        //        LeetCode48().test()
-        //        LeetCode55().test()
-        //        LeetCode58().test()
-        //        LeetCode60().test()
-        //        LeetCode89().test()
-//        LeetCode92().test()
-        LeetCode983().test()
+   
+        LeetCode119().test()
         
     }
     

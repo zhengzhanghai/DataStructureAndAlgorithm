@@ -15,13 +15,17 @@ class LeetCode20 {
     }
     
     func isValid(_ s: String) -> Bool {
-        guard !s.isEmpty || s.count % 2 != 0 else { return true }
+        let sCount = s.count
+        guard !s.isEmpty || sCount % 2 != 0 else { return true }
         
-        let sArr = Array<Character>(s)
         var stack = Stack<Character>()
-        for index in 0 ..< sArr.count {
+        var strIndex = s.startIndex
+        let strEndIndex = s.endIndex
+        
+        while strIndex < strEndIndex {
             
-            let character = sArr[index]
+            let character = s[strIndex]
+            strIndex = s.index(after: strIndex)
             
             guard let stackTop = stack.peek() else {
                 stack.push(character)
