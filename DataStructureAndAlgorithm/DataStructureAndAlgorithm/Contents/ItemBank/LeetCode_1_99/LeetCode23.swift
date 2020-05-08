@@ -11,44 +11,32 @@ import UIKit
 //23.合并K个有有序链表
 class LeetCode23 {
     func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
-        var head: ListNode? = nil
-        for list in lists {
-            head = mergeTwoLists(head, list)
-        }
-        return head
+        let preHead: ListNode? = ListNode(0)
+        var newLists = lists
+        mergeKHeads(&newLists, preHead)
+        return preHead?.next
     }
     
-    func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
-        guard list1 != nil && list2 != nil else {
-            return list1 == nil ? list2 : list1
-        }
-        var head: ListNode? = nil
-        var previous: ListNode? = nil
+    func mergeKHeads(_ lists: inout [ListNode?], _ node: ListNode?) {
+        var minVal = Int.max
+        var minValNode: ListNode? = nil
+        var minValIndex = -1
         
-        var node1 = list1
-        var node2 = list2
-        
-        while node1 != nil || node2 != nil {
-            var node = node1
-            if node1 == nil || (node1 != nil  && node2 != nil && node2!.val < node1!.val) {
-                node = node2
+        for index in 0 ..< lists.count {
+            guard let node = lists[index] else {
+                continue
             }
-            let newNode = ListNode(node!.val)
-            previous?.next = newNode
-            previous = newNode
-            
-            if node === node1 {
-                node1 = node1?.next
-            } else {
-                node2 = node2?.next
+            if node.val < minVal {
+                minVal = node.val
+                minValIndex = index
+                minValNode = node
             }
-            
-            if head == nil {
-                head = newNode
-            }
-            
         }
         
-        return head
+        if minValIndex >= 0 {
+            node?.next = minValNode
+            lists[minValIndex] = minValNode?.next
+            mergeKHeads(&lists, minValNode)
+        }
     }
 }
