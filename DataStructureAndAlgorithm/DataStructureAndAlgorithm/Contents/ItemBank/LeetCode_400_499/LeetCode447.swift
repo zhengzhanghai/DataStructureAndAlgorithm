@@ -21,18 +21,27 @@ class LeetCode447 {
         var res = 0
         
         for i in 0 ..< points.count {
-            let centerPoint = points[i]
+            
+            let point1 = points[i]
+            var hash = [Int: Int]()
+            
             for j in 0 ..< points.count {
-                guard i != j else {continue}
-                let point1 = points[j]
+                guard i != j else {
+                     continue
+                }
+                let point2 = points[j]
+                let distance = (point1[0] - point2[0]) * (point1[0] - point2[0]) + (point1[1] - point2[1]) * (point1[1] - point2[1])
                 
-                for k in 0 ..< points.count {
-                    guard k != i && k != j else {continue}
-                    let point2 = points[k]
-                    
-                    if (centerPoint[0] - point1[0]) * (centerPoint[0] - point1[0]) + (centerPoint[1] - point1[1]) * (centerPoint[1] - point1[1]) == (centerPoint[0] - point2[0]) * (centerPoint[0] - point2[0]) + (centerPoint[1] - point2[1]) * (centerPoint[1] - point2[1]) {
-                        res += 1
-                    }
+                if let count = hash[distance] {
+                    hash[distance] = count + 1
+                } else {
+                    hash[distance] = 1
+                }
+            }
+            
+            for (_, count) in hash {
+                if count > 1 {
+                    res += count * (count - 1)
                 }
             }
         }
