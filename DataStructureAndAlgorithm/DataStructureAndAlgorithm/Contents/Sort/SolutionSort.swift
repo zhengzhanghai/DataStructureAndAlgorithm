@@ -134,3 +134,21 @@ extension SolutionSort {
     }
 }
 
+/// 堆排序
+extension SolutionSort {
+    
+    /// 建立大项堆
+    func buildMaxHeap(_ nums: [Int]) {
+        
+    }
+    
+    /// 堆调整
+    func heapify(_ nums: inout [Int]) {
+        
+    }
+    
+    func heapSort(_ nums: inout [Int]) {
+        
+    }
+}
+
