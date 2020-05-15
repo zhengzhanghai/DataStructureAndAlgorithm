@@ -12,7 +12,8 @@ import UIKit
 class LeetCode88 {
     func test() {
         var array = [1,2,3,0,0,0]
-        merge(&array, 3, [2,5,6], 3)
+        merge1(&array, 3, [2,5,6], 3)
+        print(array)
     }
     
     func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
@@ -38,6 +39,24 @@ class LeetCode88 {
                 nums1[m + i] = num2
                 startIndex = m + i + 1
             }
+        }
+    }
+    
+    func merge1(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+        var index1 = m - 1
+        var index2 = n - 1
+        var index = m + n - 1
+        
+        while index >= 0 {
+            if index2 < 0 || index1 >= 0 && nums1[index1] >= nums2[index2] {
+                nums1[index] = nums1[index1]
+                index1 -= 1
+            } else {
+                nums1[index] = nums2[index2]
+                index2 -= 1
+            }
+            
+            index -= 1
         }
     }
 }
