@@ -20,7 +20,14 @@ class ViewController: UIViewController {
         //        SolutionTwoPointSearch().test()
         //        SolutionBinaryTree().test()
         //        SolutionSort().test()
-        LeetCode88().test()
+//        LeetCode152().test()
+        
+        let s: Character = "z"
+        
+        print(s.unicodeScalars.first?.value ?? 0)
+//        for code in s.unicodeScalars {
+//            print(code.value)
+//        }
     }
     
     
