@@ -101,6 +101,8 @@
 		ADEC1E6B2472960D004B6FCC /* LeetCode345.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC1E6A2472960D004B6FCC /* LeetCode345.swift */; };
 		ADEC1E6E2473765B004B6FCC /* LeetCode680.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC1E6D2473765B004B6FCC /* LeetCode680.swift */; };
 		ADEC1E702473B688004B6FCC /* LeetCode30.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC1E6F2473B688004B6FCC /* LeetCode30.swift */; };
+		ADEC1E732474C3FC004B6FCC /* LeetCode1371.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC1E722474C3FC004B6FCC /* LeetCode1371.swift */; };
+		ADEC1E7524750B23004B6FCC /* LeetCode31.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC1E7424750B23004B6FCC /* LeetCode31.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +202,8 @@
 		ADEC1E6A2472960D004B6FCC /* LeetCode345.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode345.swift; sourceTree = "<group>"; };
 		ADEC1E6D2473765B004B6FCC /* LeetCode680.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode680.swift; sourceTree = "<group>"; };
 		ADEC1E6F2473B688004B6FCC /* LeetCode30.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode30.swift; sourceTree = "<group>"; };
+		ADEC1E722474C3FC004B6FCC /* LeetCode1371.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode1371.swift; sourceTree = "<group>"; };
+		ADEC1E7424750B23004B6FCC /* LeetCode31.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode31.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +345,7 @@
 				ADEC1E0A2457C556004B6FCC /* LeetCode25.swift */,
 				ADEC1E0C2457E174004B6FCC /* LeetCode29.swift */,
 				ADEC1E6F2473B688004B6FCC /* LeetCode30.swift */,
+				ADEC1E7424750B23004B6FCC /* LeetCode31.swift */,
 				ADEC1E0E2457E6A6004B6FCC /* LeetCode32.swift */,
 				ADEC1E10245817B5004B6FCC /* LeetCode35.swift */,
 				ADEC1E12245822DC004B6FCC /* LeetCode38.swift */,
@@ -363,6 +368,7 @@
 		ADEC1E22245A88E4004B6FCC /* ItemBank */ = {
 			isa = PBXGroup;
 			children = (
+				ADEC1E712474C3DC004B6FCC /* LeetCode_1300_1399 */,
 				ADEC1E6C24737635004B6FCC /* LeetCode_600_699 */,
 				AD3468532465928300B0C5E8 /* LeetCode_700_799 */,
 				ADEC1E3E24641502004B6FCC /* LeetCode_500_599 */,
@@ -459,6 +465,14 @@
 			path = LeetCode_600_699;
 			sourceTree = "<group>";
 		};
+		ADEC1E712474C3DC004B6FCC /* LeetCode_1300_1399 */ = {
+			isa = PBXGroup;
+			children = (
+				ADEC1E722474C3FC004B6FCC /* LeetCode1371.swift */,
+			);
+			path = LeetCode_1300_1399;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -551,6 +565,7 @@
 				ADEC1E13245822DC004B6FCC /* LeetCode38.swift in Sources */,
 				AD34684224571B7300B0C5E8 /* LeetCode23.swift in Sources */,
 				ADEC1E1F24593466004B6FCC /* LeetCode60.swift in Sources */,
+				ADEC1E7524750B23004B6FCC /* LeetCode31.swift in Sources */,
 				AD22856024454F250077F7C8 /* AppDelegate.swift in Sources */,
 				ADBFB5F624498764004961CA /* HashSet.swift in Sources */,
 				ADEC1E0B2457C556004B6FCC /* LeetCode25.swift in Sources */,
@@ -616,6 +631,7 @@
 				ADEC1E4E2468F375004B6FCC /* LeetCode149.swift in Sources */,
 				ADEC1E672472719C004B6FCC /* LeetCode167.swift in Sources */,
 				ADEC1E462466A1FA004B6FCC /* LeetCode242.swift in Sources */,
+				ADEC1E732474C3FC004B6FCC /* LeetCode1371.swift in Sources */,
 				ADEC1E21245A703C004B6FCC /* LeetCode92.swift in Sources */,
 				ADEC1E5424694842004B6FCC /* LeetCode283.swift in Sources */,
 				ADEC1E402464151E004B6FCC /* LeetCode509.swift in Sources */,

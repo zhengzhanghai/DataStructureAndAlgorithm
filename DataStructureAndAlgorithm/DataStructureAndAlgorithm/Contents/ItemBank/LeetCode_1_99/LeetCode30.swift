@@ -54,25 +54,25 @@ class LeetCode30 {
         return res
     }
     
-    func findSubstring1(_ s: String, _ words: [String]) -> [Int] {
-        let wordLength = words.first?.count ?? 0
-        let allWordLength = wordLength * words.count
-        let sCount = s.count
-        guard !words.isEmpty && sCount >= allWordLength else {return []}
-        
-        var wordMap = [String: Int]()
-        for word in words {
-            wordMap[word] = (wordMap[word] ?? 0) + 1
-        }
-        
-        var sIndex = s.startIndex
-        var res = [Int]()
-        var index = 0
-        
-        for i in 0 ..< wordLength {
-            
-        }
-        
-        return res
-    }
+//    func findSubstring1(_ s: String, _ words: [String]) -> [Int] {
+//        let wordLength = words.first?.count ?? 0
+//        let allWordLength = wordLength * words.count
+//        let sCount = s.count
+//        guard !words.isEmpty && sCount >= allWordLength else {return []}
+//        
+//        var wordMap = [String: Int]()
+//        for word in words {
+//            wordMap[word] = (wordMap[word] ?? 0) + 1
+//        }
+//        
+//        var sIndex = s.startIndex
+//        var res = [Int]()
+//        var index = 0
+//        
+//        for i in 0 ..< wordLength {
+//            
+//        }
+//        
+//        return res
+//    }
 }
