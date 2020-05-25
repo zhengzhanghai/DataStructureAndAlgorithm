@@ -13,7 +13,7 @@ class SolutionSort {
     var len: Int = 0
     
     func test() {
-        var array = [5,7,1,9,2,4,6,8,7]
+        var array = [5,25,7,1,93,2,4,6,8,7,20]
 //        bubbleSort(&array)
 //        selectSort(&array)
 //        insertSort(&array)
@@ -21,7 +21,8 @@ class SolutionSort {
 //        quickSort(&array)
 //        heapSort(&array)
 //        countSort(&array)
-        bucketSort(&array)
+//        bucketSort(&array)
+        radixSort(&array)
         print(array)
     }
 }
@@ -261,5 +262,55 @@ extension SolutionSort {
         for i in 0 ..< buckets.count {
             bubbleSort(&buckets[i])
         }
+    }
+}
+
+/// 基数排序
+extension SolutionSort {
+    func radixSort(_ nums: inout [Int]) {
+        guard !nums.isEmpty else {
+            return
+        }
+        
+        var maxValue = nums[0]
+        for num in nums {
+            maxValue = max(maxValue, num)
+        }
+        
+        var maxDigit = 0
+        while maxValue != 0 {
+            maxDigit += 1
+            maxValue /= 10
+        }
+        
+        var mod = 10
+        var dev = 1
+        
+        for _ in 0 ..< maxDigit {
+            var containers = [Int: [Int]]()
+            for j in 0 ..< nums.count {
+                let bucket = (nums[j] % mod) / dev
+                if containers[bucket] == nil {
+                    containers[bucket] = [nums[j]]
+                } else {
+                    containers[bucket]?.append(nums[j])
+                }
+            }
+            
+            var index = 0
+            
+            for j in 0 ... 9 {
+                if let array = containers[j] {
+                    for item in array {
+                        nums[index] = item
+                        index += 1
+                    }
+                }
+            }
+            
+            dev *= 10
+            mod *= 10
+        }
+        
     }
 }

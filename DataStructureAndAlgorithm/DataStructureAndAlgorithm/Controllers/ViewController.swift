@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,10 +19,10 @@ class ViewController: UIViewController {
         //        SolutionHash().test()
         //        SolutionTwoPointSearch().test()
         //        SolutionBinaryTree().test()
-        SolutionSort().test()
-//        LeetCode283().test()
+        //        SolutionSort().test()
+        LeetCode146().test()
+ 
     }
-    
-    
 }
+
 
