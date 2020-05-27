@@ -20,7 +20,8 @@ class ViewController: UIViewController {
         //        SolutionTwoPointSearch().test()
         //        SolutionBinaryTree().test()
         //        SolutionSort().test()
-        LeetCode146().test()
+        LeetCode392().test()
+                
  
     }
 }
